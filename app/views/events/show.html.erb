@@ -1,24 +1,33 @@
-<div class="event">
-  <div class="event-info row">
-    <div class="col-md-12">
-      <div class="event-background", style='background-image: url(<%= asset_path("event-back.jpg") %>)'>
-        <div class="event-info-inner row">
-          <div class="col-md-6 mb-3">
-            <div class="event-description">
-              <h1><%= @event.title %></h1>
-              <h3><%= l @event.datetime, format: :long %></h3>
-              <h3><small><%= link_to @event.address,
-                                     "https://yandex.ru/maps/?text=#{@event.address}" %></small></h3>
-              <p><%= @event.description %></p>
+<div class="event-info thumbnail row">
+  <div class='event-background', style='background-image: url(<%= asset_path("event-back.jpg") %>)'></div>
+  <div class="col-md-12">
+    <div class="event-info-inner row">
+      <div class="col-md-6 mb-3">
+        <div class="event-description">
+          <h1><%= @event.title %></h1>
+          <h3><%= l @event.datetime, format: :long %></h3>
+          <h3><small><%= link_to @event.address,
+                                   "https://yandex.ru/maps/?text=#{@event.address}" %></small></h3>
+          <p><%= @event.description %></p>
+        </div>
+
+        <% if current_user_can_edit?(@event) %>
+          <div class="row">
+            <div class="buffer-both">
+              <%= link_to 'Изменить', edit_event_path(@event), class: 'btn btn-primary' %>
             </div>
 
-            <% if current_user_can_edit?(@event) %>
-              <div class="buffer-both">
-                <%= link_to 'Изменить', edit_event_path(@event),
-                            class: 'btn btn-primary' %>
-              </div>
-            <% end %>
+            <div class="buffer-both">
+              <%= button_to "Удалить мероприятие", event_path(@event),
+                                method: :delete,
+                                form: {data: {turbo_confirm: "Вы точно хотите удалить свой профиль?"}},
+                                class: 'btn btn-danger' %>
+            </div>
           </div>
+        <% end %>
+
+        <div>
+          <h5>Создано <%= link_to @event.user.name, user_path(@event.user), class: "text-decoration-none link-info" %></h5>
         </div>
       </div>
     </div>
