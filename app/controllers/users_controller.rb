@@ -12,7 +12,7 @@ class UsersController < ApplicationController
 
   def update
     if @user.update(user_params)
-      redirect_to @user, notice: 'User was successfully updated.'
+      redirect_to @user, notice: I18n.t("controllers.users.update")
     else
       render :edit
     end
