@@ -21,3 +21,10 @@ ru:
       destroy: 'Вы удалили мероприятие :('
     users:
       update: 'Вы обновили свой профиль'
+  error:
+    one: '%{count} ошибка'
+    few: '%{count} ошибки'
+    many: '%{count} ошибок'
+  errors:
+    messages:
+      not_saved: ', %{resource} не зарегестрирован.'

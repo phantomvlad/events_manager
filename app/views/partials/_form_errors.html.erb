@@ -3,12 +3,12 @@
 <% if errors.any? %>
   <div class="alert alert-danger">
     <div class="lead buffer-bottom">
-      В вашей форме <%= errors.count %> ошибок
+      <h2>В вашей форме <%= I18n.t :error, count: errors.count %></h2>
     </div>
 
     <ul>
       <% errors.full_messages.each do |message| %>
-        <%= error.full_message %>
+        <li><%= message %></li>
       <% end %>
     </ul>
   </div>
