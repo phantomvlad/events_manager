@@ -12,12 +12,12 @@
         </div>
 
         <% if current_user_can_edit?(@event) %>
-          <div class="row">
+          <div>
             <div class="buffer-both">
               <%= link_to 'Изменить', edit_event_path(@event), class: 'btn btn-primary' %>
             </div>
 
-            <div class="buffer-both">
+            <div class="mb-2">
               <%= button_to "Удалить мероприятие", event_path(@event),
                                 method: :delete,
                                 form: {data: {turbo_confirm: "Вы точно хотите удалить свой профиль?"}},
