@@ -7,6 +7,4 @@ class User < ApplicationRecord
   has_many :subscriptions
 
   validates :name, presence: true, length: {maximum: 35}
-
-  after_validation :set_name, on: :create
 end
