@@ -10,7 +10,7 @@ class Subscription < ApplicationRecord
   validates :user, uniqueness: {scope: :event_id}, if: -> { user.present? }
   validates :user_email, uniqueness: {scope: :event_id}, unless: -> { user.present? }
 
-  validate :email_uniq, if: -> { event.user == user }
+  validate :email_uniq, unless: -> { event.user == user }
   validate :self_subscription, if: -> { user.present? }
 
   def user_name
