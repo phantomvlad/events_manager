@@ -16,15 +16,19 @@ ru:
         description: 'Описание'
   controllers:
     events:
-      create: 'Вы создали новое мероприятие'
-      update: 'Вы обновили мероприятие'
-      destroy: 'Вы удалили мероприятие :('
+      created: 'Вы создали новое мероприятие'
+      updated: 'Вы обновили мероприятие'
+      destroyed: 'Вы удалили мероприятие :('
     users:
-      update: 'Вы обновили свой профиль'
+      updated: 'Вы обновили свой профиль'
     comments:
       destroyed: 'Комментарий удален'
       created: 'Ваш комментарий добавлен'
       error: 'Ошибка с комментарием'
+    subscriptions:
+      created: 'Вы подписаны на это событие'
+      destroyed: 'Участник отписан'
+      error: 'Подписка/отписка не сработала'
   error:
     one: '%{count} ошибка'
     few: '%{count} ошибки'
@@ -35,10 +39,6 @@ ru:
   comments:
     comment:
     destroy_confirm: 'Вы уверены, что хотите удалить этот комментарий?'
-  subscription:
-    created: 'Вы подписаны на это событие'
-    destroyed: 'Участник отписан'
-    error: 'Подписка/отписка не сработала'
   subscriptions:
     subscription:
       destroy_confirm: 'Вы уверены, что хотите удалить эту подписку?'
