@@ -20,17 +20,49 @@
             <div class="mb-2">
               <%= button_to "Удалить мероприятие", event_path(@event),
                                 method: :delete,
-                                form: {data: {turbo_confirm: "Вы точно хотите удалить свой профиль?"}},
+                                form: { data: { turbo_confirm: "Вы точно хотите удалить мероприятие?" } },
                                 class: 'btn btn-danger' %>
             </div>
           </div>
         <% end %>
 
-        <div>
-          <h5>Создано <%= link_to @event.user.name, user_path(@event.user), class: "text-decoration-none link-info" %></h5>
-        </div>
       </div>
     </div>
   </div>
 </div>
+
+<div class="row">
+  <div class="col-md-8">
+    <div class="event-comments buffer-top">
+      <div class="buffer-both">
+        <%= render partial: 'comments/comment',
+                   collection: @event.comments %>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="event-owner">
+      <h4>Зовет:</h4>
+      <p><%= render partial: 'users/user', object: @event.user %></p>
+    </div>
+    <div class="event-subscriptions">
+      <h4>Пойдут:</h4>
+      <div>
+        <p>
+          <%= render partial: 'subscriptions/subscription',
+                     collection: @event.subscriptions.except(@new_subscription) %>
+        </p>
+      </div>
+    </div>
+    <div class="event-subscription-form">
+      <h4>Я пойду:</h4>
+      <div>
+        <%= render partial: 'subscriptions/form', locals: {
+          subscription: @new_subscription || @event.subscriptions.build } %>
+      </div>
+    </div>
+  </div>
+
+</div>
+
 

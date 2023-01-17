@@ -21,6 +21,10 @@ ru:
       destroy: 'Вы удалили мероприятие :('
     users:
       update: 'Вы обновили свой профиль'
+    comments:
+      destroyed: 'Комментарий удален'
+      created: 'Ваш комментарий добавлен'
+      error: 'Ошибка с комментарием'
   error:
     one: '%{count} ошибка'
     few: '%{count} ошибки'
@@ -28,3 +32,18 @@ ru:
   errors:
     messages:
       not_saved: ', %{resource} не зарегестрирован.'
+  comments:
+    comment:
+    destroy_confirm: 'Вы уверены, что хотите удалить этот комментарий?'
+  subscription:
+    created: 'Вы подписаны на это событие'
+    destroyed: 'Участник отписан'
+    error: 'Подписка/отписка не сработала'
+  subscriptions:
+    subscription:
+      destroy_confirm: 'Вы уверены, что хотите удалить эту подписку?'
+
+
+
+
+
