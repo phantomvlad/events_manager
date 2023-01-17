@@ -12,7 +12,7 @@
     <% if current_user_can_edit?(comment) %>
       <%= link_to(
             bi_icon('trash'), event_comment_path(comment.event, comment),
-            method: :delete, data: {confirm: t('.destroy_confirm')}
+            data: { "turbo-method": :delete, "turbo-confirm": t('comments.destroy_confirm') }
           ) %>
     <% end %>
   </p>
