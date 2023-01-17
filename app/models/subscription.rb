@@ -9,7 +9,11 @@ class Subscription < ApplicationRecord
 
   validates :user, uniqueness: {scope: :event_id}, if: -> { user.present? }
   validates :user_email, uniqueness: {scope: :event_id}, unless: -> { user.present? }
-  validates :user_email, uniqueness: {scope: :user_id}, unless: -> { user.present? }
+
+  validates_each :user_email do |record, attr, value|
+    record.errors.add(attr, 'уже зарегестрирован, войдите в аккаунт') if User.where(email: value)
+  end
+
 
   def user_name
     if user.present?
