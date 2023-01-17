@@ -6,7 +6,7 @@ class SubscriptionsController < ApplicationController
     @new_subscription = @event.subscriptions.build(subscription_params)
     @new_subscription.user = current_user
 
-    if user_subscribe_your_event(@new_subscription) && @new_subscription.save
+    if @new_subscription.save
       redirect_to @event, notice: I18n.t('controllers.subscriptions.created')
     else
       render 'events/show', alert: I18n.t('controllers.subscriptions.error')
@@ -36,9 +36,5 @@ class SubscriptionsController < ApplicationController
 
   def subscription_params
     params.fetch(:subscription, {}).permit(:user_email, :user_name)
-  end
-
-  def user_subscribe_your_event(new_subscription)
-    new_subscription.user != @event.user
   end
 end

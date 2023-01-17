@@ -42,6 +42,8 @@ ru:
   subscriptions:
     subscription:
       destroy_confirm: 'Вы уверены, что хотите удалить эту подписку?'
+      your_event: 'Это ваше мероприятие'
+      email_no_uniq: 'Пользователь с таким Email уже существует'
 
 
 
