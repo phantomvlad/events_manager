@@ -13,6 +13,8 @@ class Subscription < ApplicationRecord
   validate :email_uniq, unless: -> { event.user == user }
   validate :self_subscription, if: -> { user.present? }
 
+  private
+  
   def user_name
     if user.present?
       user.name
