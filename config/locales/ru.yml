@@ -3,6 +3,8 @@ ru:
     models:
       user: 'Пользователь'
       event: 'Событие'
+      subscription: 'Подписка'
+      comment: 'Комментарий'
     attributes:
       user:
         email: 'Email'
@@ -14,6 +16,20 @@ ru:
         address: 'Место проведения'
         datetime: 'Дата и время'
         description: 'Описание'
+      subscription:
+        user_name: 'Имя пользователя'
+        user_email: 'Электронная почта'
+        user: 'Пользователь'
+      comment:
+        body: 'Комментарий'
+        user_name: 'Имя пользователя'
+    errors:
+      models:
+        subscription:
+          attributes:
+            user_email:
+              used_email: "уже зарегистрирована"
+
   controllers:
     events:
       created: 'Вы создали новое мероприятие'
@@ -42,8 +58,7 @@ ru:
   subscriptions:
     subscription:
       destroy_confirm: 'Вы уверены, что хотите удалить эту подписку?'
-      your_event: 'Это ваше мероприятие'
-      email_no_uniq: 'уже существует'
+
 
 
 

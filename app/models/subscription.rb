@@ -2,16 +2,17 @@ class Subscription < ApplicationRecord
   belongs_to :event
   belongs_to :user, optional: true
 
-  validates :event, presence: true
+  with_options if: -> { user.present? } do |user|
+    user.validates :user, uniqueness: {scope: :event_id}
+    user.validate :self_subscription
+  end
 
-  validates :user_name, presence: true, unless: -> { user.present? }
-  validates :user_email, presence: true, format: /\A[a-zA-Z0-9\-_.]+@[a-zA-Z0-9\-_.]+\z/, unless: -> { user.present? }
-
-  validates :user, uniqueness: {scope: :event_id}, if: -> { user.present? }
-  validates :user_email, uniqueness: {scope: :event_id}, unless: -> { user.present? }
-
-  validate :email_uniqueness, unless: -> { user.present? }
-  validate :self_subscription, if: -> { user.present? }
+  with_options unless: -> { user.present? } do |user|
+    user.validates :user_name, presence: true
+    user.validates :user_email, uniqueness: {scope: :event_id}, presence: true,
+              format: /\A[a-zA-Z0-9\-_.]+@[a-zA-Z0-9\-_.]+\z/
+    user.validate :used_email
+  end
 
   def user_name
     if user.present?
@@ -30,15 +31,16 @@ class Subscription < ApplicationRecord
   end
 
   private
-  def email_uniqueness
+
+  def used_email
     if User.find_by(email: user_email).present?
-      errors.add(:user_email, I18n.t('subscriptions.subscription.email_no_uniq'))
+      errors.add(:user_email, :used_email)
     end
   end
 
   def self_subscription
     if event.user == user
-      errors.add(:user_email, I18n.t('subscriptions.subscription.your_event'))
+      errors.add(:user_email, :self_subscription)
     end
   end
 end
