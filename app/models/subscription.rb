@@ -2,16 +2,16 @@ class Subscription < ApplicationRecord
   belongs_to :event
   belongs_to :user, optional: true
 
-  with_options if: -> { user.present? } do |user|
-    user.validates :user, uniqueness: {scope: :event_id}
-    user.validate :self_subscription
+  with_options if: -> { user.present? } do
+    validates :user, uniqueness: {scope: :event_id}
+    validate :self_subscription
   end
 
-  with_options unless: -> { user.present? } do |user|
-    user.validates :user_name, presence: true
-    user.validates :user_email, uniqueness: {scope: :event_id}, presence: true,
+  with_options unless: -> { user.present? } do
+    validates :user_name, presence: true
+    validates :user_email, uniqueness: {scope: :event_id}, presence: true,
               format: /\A[a-zA-Z0-9\-_.]+@[a-zA-Z0-9\-_.]+\z/
-    user.validate :used_email
+    validate :registered_user_email_presence
   end
 
   def user_name
@@ -32,9 +32,9 @@ class Subscription < ApplicationRecord
 
   private
 
-  def used_email
+  def registered_user_email_presence
     if User.find_by(email: user_email).present?
-      errors.add(:user_email, :used_email)
+      errors.add(:user_email, :registered_user_email_presence)
     end
   end
 

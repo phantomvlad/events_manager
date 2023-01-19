@@ -28,7 +28,7 @@ ru:
         subscription:
           attributes:
             user_email:
-              used_email: "уже зарегистрирована"
+              registered_user_email_presence: "уже зарегистрирована"
 
   controllers:
     events:
