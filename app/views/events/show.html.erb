@@ -35,7 +35,7 @@
   </div>
 </div>
   <% if @event.photo.attached? %>
-    <%= image_tag @event.photo.variant(:thumb) %>
+    <%= image_tag @event.photo.variant(:avatar) %>
   <% end %>
 <div class="row">
   <div class="col-md-8">

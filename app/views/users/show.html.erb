@@ -1,7 +1,7 @@
 <div class="text-center mt-5">
   <h1><%= @user.name %></h1>
 
-  <%= image_tag user_avatar(@user), size: 200 %>
+  <%= image_tag user_avatar(@user, :show) %>
 
   <% if @user == current_user %>
     <p class="buffer-top"><%= link_to 'Редактировать профиль', edit_user_path(@user), class: 'btn btn-secondary' %></p>

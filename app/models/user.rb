@@ -6,7 +6,8 @@ class User < ApplicationRecord
   has_many :comments
   has_many :subscriptions
   has_one_attached :avatar do |attachable|
-    attachable.variant :thumb, resize_to_limit: [100, 100]
+    attachable.variant :show, resize_to_limit: [400, 400]
+    attachable.variant :mini, resize_to_limit: [100, 100]
   end
 
 

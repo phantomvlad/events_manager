@@ -1,6 +1,10 @@
 module ApplicationHelper
-  def user_avatar(user)
-    asset_path('avatar.png')
+  def user_avatar(user,variant)
+    if user.avatar?
+      user.avatar.variant(variant)
+    else
+      asset_path('avatar.png')
+    end
   end
 
   def bi_icon(icon_class)
