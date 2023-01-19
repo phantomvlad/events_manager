@@ -1,6 +1,6 @@
 <div class="event-info thumbnail row">
   <% if @event.photo.attached? %>
-    <div class='event-background', style='background-image: url(<%= @event.photo %>)'></div>
+    <div class='event-background', style='background-image: url(<%= event_photo(@event, :big) %>)'></div>
   <% else %>
     <div class='event-background', style='background-image: url(<%= asset_path("event-back.jpg") %>)'></div>
   <% end %>
@@ -34,9 +34,6 @@
     </div>
   </div>
 </div>
-  <% if @event.photo.attached? %>
-    <%= image_tag @event.photo.variant(:avatar) %>
-  <% end %>
 <div class="row">
   <div class="col-md-8">
     <%= render partial: 'comments/form', locals: {comment: @new_comment || @event.comments.build} %>
