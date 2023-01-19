@@ -1,5 +1,10 @@
 <div class="event-info thumbnail row">
-  <div class='event-background', style='background-image: url(<%= asset_path("event-back.jpg") %>)'></div>
+  <% if @event.photo.attached? %>
+    <div class='event-background', style='background-image: url(<%= @event.photo %>)'></div>
+  <% else %>
+    <div class='event-background', style='background-image: url(<%= asset_path("event-back.jpg") %>)'></div>
+  <% end %>
+
   <div class="col-md-12">
     <div class="event-info-inner row">
       <div class="col-md-6 mb-3">
@@ -25,12 +30,13 @@
             </div>
           </div>
         <% end %>
-
       </div>
     </div>
   </div>
 </div>
-
+  <% if @event.photo.attached? %>
+    <%= image_tag @event.photo.variant(:thumb) %>
+  <% end %>
 <div class="row">
   <div class="col-md-8">
     <%= render partial: 'comments/form', locals: {comment: @new_comment || @event.comments.build} %>

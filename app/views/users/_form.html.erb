@@ -11,6 +11,11 @@
     <%= f.text_field :email, class: 'form-control' %>
   </div>
 
+  <div class="field mb-3">
+    <%= f.label :avatar, class: "form-label" %>
+    <%= f.file_field :avatar, class: "form-control" %>
+  </div>
+
   <div class="actions mb-3">
     <%= f.submit 'Сохранить', class: 'btn btn-primary' %>
     или <%= link_to 'вернуться', :back %>
