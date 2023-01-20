@@ -1,0 +1,4 @@
+<div class="event-photo buffer-both">
+  <%= link_to image_tag(url_for(photo.image.variant(:thumb))), url_for(photo.image.variant(:thumb)) %>
+  Добавил<%= render partial: 'users/user', object: photo.user %>
+</div>

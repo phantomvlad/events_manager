@@ -1,9 +1,5 @@
 <div class="event-info thumbnail row">
-  <% if @event.photo.attached? %>
-    <div class='event-background', style='background-image: url(<%= event_photo(@event, :big) %>)'></div>
-  <% else %>
-    <div class='event-background', style='background-image: url(<%= asset_path("event-back.jpg") %>)'></div>
-  <% end %>
+  <div class='event-background', style='background-image: url(<%= event_avatar_big(@event) %>)'></div>
 
   <div class="col-md-12">
     <div class="event-info-inner row">
@@ -34,14 +30,27 @@
     </div>
   </div>
 </div>
+
 <div class="row">
   <div class="col-md-8">
+    <h2>Фотогалерея</h2>
+
+    <div class="event-photos-gallery">
+      <%= render partial: 'photos/photo', collection: @event.photos.except(@new_photo) %>
+    </div>
+
+    <div class="event-photo-form">
+      <%= render partial: 'photos/form', locals: {photo: @new_photo || @event.photos.build} %>
+    </div>
+
+    <h2 class="mt-3">Комментарии</h2>
     <%= render partial: 'comments/form', locals: {comment: @new_comment || @event.comments.build} %>
     <div class="buffer-both">
       <%= render partial: 'comments/comment',
                  collection: @event.comments.except(@new_comment) %>
     </div>
   </div>
+
   <div class="col-md-4">
     <div class="event-owner">
       <h4>Зовет:</h4>
@@ -68,7 +77,6 @@
       </div>
       <% end %>
   </div>
-
 </div>
 
 

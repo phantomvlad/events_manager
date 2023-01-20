@@ -5,17 +5,21 @@ ru:
       event: 'Событие'
       subscription: 'Подписка'
       comment: 'Комментарий'
+      photo: 'Изображение'
     attributes:
       user:
         email: 'Email'
         name: 'Имя'
         password: 'Пароль'
         password_confirmation: 'Подтверждение пароля'
+        avatar: 'Аватарка'
       event:
         title: 'Название'
         address: 'Место проведения'
         datetime: 'Дата и время'
         description: 'Описание'
+        image: 'Изображение'
+        event_avatar: 'Фотография мероприятия'
       subscription:
         user_name: 'Имя пользователя'
         user_email: 'Электронная почта'
@@ -23,6 +27,9 @@ ru:
       comment:
         body: 'Комментарий'
         user_name: 'Имя пользователя'
+      photo:
+        image: 'Изображение'
+
     errors:
       models:
         subscription:
@@ -46,6 +53,10 @@ ru:
       created: 'Вы подписаны на это событие'
       destroyed: 'Участник отписан'
       error: 'Подписка/отписка не сработала'
+    photos:
+      error: 'Что-то не так с изображением'
+      created: 'Вы добавили изображение к событию'
+      destroyed: 'Вы удалили изображение'
   error:
     one: '%{count} ошибка'
     few: '%{count} ошибки'
@@ -59,9 +70,5 @@ ru:
   subscriptions:
     subscription:
       destroy_confirm: 'Вы уверены, что хотите удалить эту подписку?'
-
-
-
-
-
-
+  buttons:
+    send: 'Отправить'

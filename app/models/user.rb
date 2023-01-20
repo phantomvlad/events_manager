@@ -5,13 +5,18 @@ class User < ApplicationRecord
   has_many :events
   has_many :comments
   has_many :subscriptions
+  has_many :photos
+
   has_one_attached :avatar do |attachable|
     attachable.variant :show, resize_to_limit: [400, 400]
-    attachable.variant :mini, resize_to_limit: [100, 100]
+    attachable.variant :mini, resize_to_limit: [200, 200]
   end
 
-
   validates :name, presence: true, length: {maximum: 35}
+
+  validates :avatar,
+            content_type: %w[image/jpeg image/png image/gif],
+            size: { less_than: 5.megabytes }
 
   after_commit :link_subscriptions, on: :create
 

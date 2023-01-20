@@ -31,6 +31,7 @@ class EventsController < ApplicationController
   def show
     @new_comment = @event.comments.build(params[:comment])
     @new_subscription = @event.subscriptions.build(params[:subscription])
+    @new_photo = @event.photos.build(params[:photo])
   end
 
   def update
@@ -54,7 +55,7 @@ class EventsController < ApplicationController
 
   # редактируем параметры события
   def event_params
-    params.require(:event).permit(:title, :address, :datetime, :description,  :photo)
+    params.require(:event).permit(:title, :address, :datetime, :description,  :photo, :event_avatar)
   end
 
   def set_current_user_event
