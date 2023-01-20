@@ -7,7 +7,7 @@
           <h3><%= link_to event.title, event_path(event), class: "text-info" %></h3>
           <h3><small class="text-light"><%= l event.datetime, format: :long %></small></h3>
           <div class="buffer-both text-light"><%= event.address %></div>
-          <div>
+          <div class="mb-1">
             <% event.visitors.each do |user| %>
               <%= image_tag user_avatar(user, :mini), class: 'user-avatar-event', title: user.name %>
             <% end %>
