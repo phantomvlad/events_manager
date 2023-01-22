@@ -18,4 +18,8 @@ class ApplicationController < ActionController::Base
     user_signed_in? && (model.user == current_user ||
         (model.try(:event).present? && model.event.user == current_user))
   end
+
+  def check_captcha(model)
+    current_user.present? || verify_recaptcha(model: model)
+  end
 end

@@ -3,7 +3,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby "3.1.2"
 
-gem "rails", "~> 7.0.4"
+gem "rails"
 gem "sprockets-rails"
 gem "puma", "~> 5.0"
 gem "jsbundling-rails"
@@ -22,7 +22,6 @@ gem "image_processing", ">= 1.2"
 gem "aws-sdk-s3", require: false
 gem 'active_storage_validations'
 gem "recaptcha", require: "recaptcha/rails"
-gem 'jquery-rails'
 
 group :development, :test do
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
