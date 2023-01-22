@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_01_19_190134) do
+ActiveRecord::Schema[7.0].define(version: 2023_01_20_213138) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -58,6 +58,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_19_190134) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "user_id", null: false
+    t.integer "photo_id"
+    t.string "pincode"
+    t.index ["photo_id"], name: "index_events_on_photo_id"
     t.index ["user_id"], name: "index_events_on_user_id"
   end
 
@@ -100,7 +103,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_19_190134) do
     t.datetime "confirmation_sent_at"
     t.string "unconfirmed_email"
     t.string "avatar"
+    t.integer "photo_id"
     t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["photo_id"], name: "index_users_on_photo_id"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 

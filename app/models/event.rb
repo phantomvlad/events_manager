@@ -20,4 +20,7 @@ class Event < ApplicationRecord
     (subscribers + [user]).uniq
   end
 
+  def pincode_valid?(pin2chek)
+    pincode == pin2chek
+  end
 end

@@ -6,6 +6,8 @@
     <%= f.text_area :body, class: 'form-control' %>
   </div>
 
+  <%= recaptcha_tags unless current_user.present? %>
+
   <% unless user_signed_in? %>
     <div class="form-group">
       <%= f.label :user_name %>

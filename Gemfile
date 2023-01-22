@@ -21,12 +21,15 @@ gem "rails-i18n"
 gem "image_processing", ">= 1.2"
 gem "aws-sdk-s3", require: false
 gem 'active_storage_validations'
+gem "recaptcha", require: "recaptcha/rails"
+gem 'jquery-rails'
 
 group :development, :test do
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
 end
 
 group :development do
+  gem "letter_opener"
   gem "web-console"
 end
 

@@ -2,29 +2,37 @@
   <%= render partial: 'partials/form_errors', locals: {model: @event} %>
 
   <div class="form-group mb-3">
-    <%= f.label :title %>
+    <%= f.label :title, class: "form-label" %>
     <%= f.text_field :title, class: 'form-control' %>
   </div>
 
   <div class="form-group mb-3">
-    <%= f.label :address %>
+    <%= f.label :address, class: "form-label" %>
     <%= f.text_field :address, class: 'form-control' %>
   </div>
 
   <div class="form-group mb-3">
-    <%= f.label :datetime %>
+    <%= f.label :datetime, class: "form-label" %>
     <p><%= f.datetime_select :datetime, class: 'form-control' %></p>
   </div>
 
   <div class="form-group mb-3">
-    <%= f.label :description %>
+    <%= f.label :description, class: "form-label" %>
     <%= f.text_area :description, class: 'form-control' %>
+  </div>
+
+  <div class="form-group mb-3">
+    <%= f.label :pincode, class: "form-label" %>
+    <%= f.text_area :pincode, class: 'form-control' %>
+    <div id="emailHelp" class="form-text">Для создания приватного мероприятия</div>
   </div>
 
   <div class="field mb-3">
     <%= f.label :event_avatar, class: "form-label" %>
     <%= f.file_field :event_avatar, class: "form-control" %>
   </div>
+
+  <div class='mtcaptcha'></div>
 
   <div class="actions mb-3">
     <%= f.submit 'Сохранить', class: 'btn btn-primary' %>

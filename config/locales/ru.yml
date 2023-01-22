@@ -20,6 +20,8 @@ ru:
         description: 'Описание'
         image: 'Изображение'
         event_avatar: 'Фотография мероприятия'
+        pincode: 'Пин-код доступа'
+
       subscription:
         user_name: 'Имя пользователя'
         user_email: 'Электронная почта'
@@ -43,6 +45,7 @@ ru:
       created: 'Вы создали новое мероприятие'
       updated: 'Вы обновили мероприятие'
       destroyed: 'Вы удалили мероприятие :('
+      wrong_pincode: 'Неверный пин-код!'
     users:
       updated: 'Вы обновили свой профиль'
     comments:
