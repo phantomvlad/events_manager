@@ -91,3 +91,6 @@ ru:
       event: 'Событие'
       datetime: 'Состоится'
       owner: 'Организатор'
+  events:
+    password_form:
+      pincode: 'Введите пинкод'

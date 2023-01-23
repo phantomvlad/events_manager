@@ -10,9 +10,6 @@ class EventsController < ApplicationController
     @events = Event.all
   end
 
-  def show
-  end
-
   def new
     @event = current_user.events.build
   end
@@ -68,7 +65,6 @@ class EventsController < ApplicationController
     return true if @event.pincode.blank?
 
     return true if signed_in? && current_user == @event.user
-
     if params[:pincode].present? && @event.pincode_valid?(params[:pincode])
       cookies.permanent["events_#{@event.id}_pincode"] = params[:pincode]
     end
