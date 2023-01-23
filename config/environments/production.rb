@@ -91,6 +91,7 @@ Rails.application.configure do
     user_name:       'help@event-manager-dance.ru',
     password:        Rails.application.credentials.dig(:mail_secret),
     authentication:  'plain',
+    enable_starttls_auto: true
   }
 
   if ENV["RAILS_LOG_TO_STDOUT"].present?
