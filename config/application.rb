@@ -24,10 +24,6 @@ module EventManager
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 7.0
 
-    Airbrake.configure do |c|
-      c.project_id = 477567
-      c.project_key = 'b5624d60c1d9f56cbcb5dd46df2dee3f'
-    end
     # Configuration for the application, engines, and railties goes here.
     #
     # These settings can be overridden in specific environments using the files
