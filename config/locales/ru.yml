@@ -1,7 +1,11 @@
 ru:
   activerecord:
     models:
-      user: 'Пользователь'
+      user:
+        few: 'Пользователя'
+        many: 'Пользователей'
+        one: 'Пользователь'
+        other: 'Пользователи'
       event: 'Событие'
       subscription: 'Подписка'
       comment: 'Комментарий'
@@ -13,6 +17,11 @@ ru:
         password: 'Пароль'
         password_confirmation: 'Подтверждение пароля'
         avatar: 'Аватарка'
+        current_password: 'Текущий пароль'
+        remember_me: 'Запомнить меня'
+        reset_password_sent_at: 'Дата отправки сброса пароля'
+        reset_password_token: 'Токен сброса пароля'
+
       event:
         title: 'Название'
         address: 'Место проведения'
@@ -91,6 +100,23 @@ ru:
       event: 'Событие'
       datetime: 'Состоится'
       owner: 'Организатор'
+    photo:
+      title: 'Новое фото'
+      author: 'Автор'
+      event: 'Мероприятие'
+      datetime: 'Время'
+      owner: 'Организатор'
   events:
     password_form:
       pincode: 'Введите пинкод'
+
+  devise:
+    mailer:
+      reset_password_instructions:
+        action: 'Изменить пароль'
+        greeting: 'Здравствуйте, %{recipient}!'
+        instruction: 'Вы (или кто-то еще) запросили изменение пароля. Для изменения пароля нажмите ссылку ниже:'
+        instruction_2: 'Если вы не запрашивали изменение пароля - проигнорируйте это сообщение'
+        instruction_3: 'Ваш пароль не изменится пока вы не нажмете на ссылку и не введете новый.'
+        subject: 'Инструкции по восстановлению пароля'
+

@@ -8,7 +8,8 @@ class Photo < ApplicationRecord
 
   validates :image,
             content_type: %w[image/jpeg image/png image/gif],
-            size: { less_than: 5.megabytes }
+            size: { less_than: 5.megabytes },
+            presence: true
 
   scope :persisted, -> { where 'id IS NOT NULL' }
 end
