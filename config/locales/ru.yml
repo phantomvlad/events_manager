@@ -119,4 +119,11 @@ ru:
         instruction_2: 'Если вы не запрашивали изменение пароля - проигнорируйте это сообщение'
         instruction_3: 'Ваш пароль не изменится пока вы не нажмете на ссылку и не введете новый.'
         subject: 'Инструкции по восстановлению пароля'
+    passwords:
+      edit:
+        change-password: 'Изменение пароля'
+        new-password: 'Новый пароль'
+        confirm-password: 'Подтвердите пароль'
+        change-my-password: 'Сменить мой пароль'
 
+  event-url: "https://event-manager-dance.ru/events/%{id}"
