@@ -88,7 +88,7 @@ Rails.application.configure do
 
   config.action_mailer.smtp_settings = {
   address:         'connect.smtp.bz',
-  port:            587,
+  port:            465,
   user_name:       'event.manager.dance@gmail.com',
   password:        Rails.application.credentials.dig(:smtp_secret),
   authentication:  :plain,
