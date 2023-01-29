@@ -80,20 +80,30 @@ Rails.application.configure do
   # Use a different logger for distributed setups.
   # require "syslog/logger"
   # config.logger = ActiveSupport::TaggedLogging.new(Syslog::Logger.new "app-name")
-  config.action_mailer.default_url_options = {host: 'event-manager-dance.ru', protocol: 'https'}
+  config.action_mailer.default_url_options = {host: 'connect.smtp.bz', protocol: 'https'}
+  #config.action_mailer.default_url_options = {host: 'event-manager-dance.ru', protocol: 'https'}
   config.action_mailer.perform_deliveries = true
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.raise_delivery_errors = true
 
   config.action_mailer.smtp_settings = {
-    address:         'smtp.mail.ru',
-    port:            465,
-    user_name:       'help@event-manager-dance.ru',
-    password:        Rails.application.credentials.dig(:mail_secret),
-    authentication:  :plain,
-    enable_starttls_auto: true,
-    tls: true
+  port:            587,
+  user_name:       'event.manager.dance@gmail.com',
+  password:        Rails.application.credentials.dig(:smtp_secret),
+  authentication:  :plain,
+  enable_starttls_auto: true,
+  tls: true
   }
+  #
+  #config.action_mailer.smtp_settings = {
+  #address:         'smtp.mail.ru',
+  #port:            465,
+  #user_name:       'help@event-manager-dance.ru',
+  #password:        Rails.application.credentials.dig(:mail_secret),
+  #authentication:  :plain,
+  #enable_starttls_auto: true,
+  #tls: true
+  #}
 
   if ENV["RAILS_LOG_TO_STDOUT"].present?
     logger           = ActiveSupport::Logger.new(STDOUT)
