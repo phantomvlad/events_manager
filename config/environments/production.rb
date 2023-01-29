@@ -87,6 +87,7 @@ Rails.application.configure do
   config.action_mailer.raise_delivery_errors = true
 
   config.action_mailer.smtp_settings = {
+  address:         'connect.smtp.bz',
   port:            587,
   user_name:       'event.manager.dance@gmail.com',
   password:        Rails.application.credentials.dig(:smtp_secret),
