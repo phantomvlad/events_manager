@@ -95,6 +95,7 @@ Rails.application.configure do
   enable_starttls_auto: true,
   tls: true
   }
+
   #
   #config.action_mailer.smtp_settings = {
   #address:         'smtp.mail.ru',
