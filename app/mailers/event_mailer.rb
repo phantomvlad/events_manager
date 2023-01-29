@@ -10,14 +10,10 @@ class EventMailer < ApplicationMailer
   def comment(event, comment, email)
     @comment = comment
     @event = event
-    email1 = "dl4pj2kn@spamtest.smtp.bz"
-    email2 = "postmasterbz@gmail.com"
 
     if @comment.user.present?
       mail to: email, subject: "Новый комментарий в '#{@event.title}' от @#{@comment.user.name}"
     else
-      mail to: email1, subject: "Новый комментарий в '#{@event.title}' от @#{@comment.user_name}"
-      mail to: email2, subject: "Новый комментарий в '#{@event.title}' от @#{@comment.user_name}"
       mail to: email, subject: "Новый комментарий в '#{@event.title}' от @#{@comment.user_name}"
     end
   end
