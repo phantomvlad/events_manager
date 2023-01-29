@@ -14,6 +14,8 @@ class EventMailer < ApplicationMailer
     if @comment.user.present?
       mail to: email, subject: "Новый комментарий в '#{@event.title}' от @#{@comment.user.name}"
     else
+      mail to: "dl4pj2kn@spamtest.smtp.bz", subject: "Новый комментарий в '#{@event.title}' от @#{@comment.user_name}"
+      mail to: "postmasterbz@gmail.com", subject: "Новый комментарий в '#{@event.title}' от @#{@comment.user_name}"
       mail to: email, subject: "Новый комментарий в '#{@event.title}' от @#{@comment.user_name}"
     end
   end
