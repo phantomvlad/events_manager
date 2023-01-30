@@ -127,3 +127,6 @@ ru:
         change-my-password: 'Сменить мой пароль'
 
   event-url: "https://event-manager-dance.ru/events/%{id}"
+
+  turbo:
+    delete: "Вы действительно хотите удалить фото?"
