@@ -2,14 +2,18 @@ document.addEventListener("turbo:load", function () {
     ymaps.ready(init);
 
     function init() {
-        address = document.getElementById("map").getAttribute("data-address");
+        const mapObj = document.getElementById("map")
 
-        myMap = new ymaps.Map("map", {
+        if (!mapObj) return
+
+        const address = mapObj.getAttribute("data-address");
+
+        const myMap = new ymaps.Map("map", {
             center: [55.76, 37.64],
             zoom: 10
         });
 
-        myGeocoder = ymaps.geocode(address);
+        const myGeocoder = ymaps.geocode(address);
 
         myGeocoder.then(
             function (res) {
@@ -23,10 +27,11 @@ document.addEventListener("turbo:load", function () {
                     )
                 );
 
+
                 myMap.setCenter(coordinates);
                 myMap.setZoom(15);
             }, function (err) {
-                alert("Не можем найти такой адрес");
+                alert("Адрес не найден");
             }
         );
     }
