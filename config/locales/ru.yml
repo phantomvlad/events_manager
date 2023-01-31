@@ -130,3 +130,11 @@ ru:
 
   turbo:
     delete: "Вы действительно хотите удалить фото?"
+
+  event_mailer:
+    subscription:
+      subject: 'Пользователь %{subscriber} подписался на мероприятие "%{event_title}"'
+    comment:
+      subject: 'Новый комментарий от %{user_comment} в мероприятии "%{event_title}"'
+    photo:
+      subject: 'Новое фото от %{user_photo} в мероприятии "%{event_title}"'
