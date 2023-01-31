@@ -6,6 +6,6 @@ Email: <%=  @photo.user.email %>
 
 ----------------------
 
-Событие: <%= link_to @event.title, t("event-url", :id => @event.id) %>
-Состоится: <%= l @event.datetime %>
-Организатор: <%= @event.user.name %>
+Событие: <%= link_to @photo.event.title, t("event-url", :id => @photo.event.id) %>
+Состоится: <%= l @photo.event.datetime %>
+Организатор: <%= @photo.event.user.name %>

@@ -5,9 +5,9 @@
 <hr/>
 
 <%= t '.event' %>
-<h3><%= link_to @event.title, t("event-url", :id => @event.id) %></h3>
+<h3><%= link_to @photo.event.title, t("event-url", :id => @photo.event.id) %></h3>
 <%= t '.datetime' %>
-<h4><%= l @event.datetime %></h4>
+<h4><%= l @photo.event.datetime %></h4>
 
 <%= t '.owner' %>
-<h4><%= @event.user.name %></h4>
+<h4><%= @photo.event.user.name %></h4>
