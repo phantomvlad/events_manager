@@ -96,6 +96,7 @@ ru:
       event: 'Событие'
       datetime: 'Состоится'
       owner: 'Организатор'
+      subject: 'Новый комментарий от %{user_comment} в мероприятии "%{event_title}"'
     subscription:
       title: 'Новая подписка'
       name: 'Имя'
@@ -104,12 +105,14 @@ ru:
       event: 'Событие'
       datetime: 'Состоится'
       owner: 'Организатор'
+      subject: 'Пользователь %{subscriber} подписался на мероприятие "%{event_title}"'
     photo:
       title: 'Новое фото'
       author: 'Автор'
       event: 'Мероприятие'
       datetime: 'Время'
       owner: 'Организатор'
+      subject: 'Новое фото от %{user_photo} в мероприятии "%{event_title}"'
 
   events:
     password_form:
@@ -191,11 +194,3 @@ ru:
 
   turbo:
     delete: "Вы действительно хотите удалить фото?"
-
-  event_mailer:
-    subscription:
-      subject: 'Пользователь %{subscriber} подписался на мероприятие "%{event_title}"'
-    comment:
-      subject: 'Новый комментарий от %{user_comment} в мероприятии "%{event_title}"'
-    photo:
-      subject: 'Новое фото от %{user_photo} в мероприятии "%{event_title}"'
