@@ -7,14 +7,14 @@
         <div class="field mb-3">
           <%= f.label :email, class: "form-label" %>
           <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
-          <div id="emailHelp" class="form-text">Введите незарегистрированный email</div>
+          <div id="emailHelp" class="form-text"><%= t(".enter-no-register-email") %></div>
         </div>
 
         <div class="field mb-3">
           <%= f.label :name, class: "form-label" %>
           <%= f.text_field :name, autofocus: true, input_html: {autocomplete: 'disabled'}, class: "form-control" %>
           <span id="passwordHelpInline" class="form-text">
-             Максимум 35 символов
+             <%= t(".max-35") %>>
           </span>
         </div>
 
@@ -22,7 +22,7 @@
           <%= f.label :password, class: "form-label" %>
           <%= f.password_field :password, autocomplete: "new-password", autofocus: true, class: "form-control" %>
           <span id="passwordHelpInline" class="form-text">
-             Минимум 6 символов
+             <%= t(".max-6") %>>
           </span>
         </div>
 
@@ -32,7 +32,7 @@
         </div>
 
         <div class="actions text-center">
-          <%= f.submit "Зарегистрироваться", class: "btn btn-primary", data: {turbo: false}%>
+          <%= f.submit t(".registration"), class: "btn btn-primary", data: {turbo: false}%>
         </div>
       </div>
     </div>

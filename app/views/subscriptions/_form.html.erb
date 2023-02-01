@@ -16,6 +16,6 @@
   <div class="mb-3"><%= recaptcha_tags unless current_user.present? %></div>
 
   <div class="actions">
-    <%= f.submit 'Подписаться', class: 'btn btn-success mt-3' %>
+    <%= f.submit t(".subscribe"), class: 'btn btn-success mt-3' %>
   </div>
 <% end %>

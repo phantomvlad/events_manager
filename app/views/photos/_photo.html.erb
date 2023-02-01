@@ -1,5 +1,5 @@
 <a href="<%= url_for(photo.image.variant(:big)) %>" data-gallery="example-gallery" data-toggle="lightbox" class="photo-icon"
-   data-caption='Добавлен <%= render partial: "users/user", object: photo.user %>
+   data-caption='<%= t(".add") %> <%= render partial: "users/user", object: photo.user %>
      <% if current_user_can_edit?(photo) %>
        <%= link_to '<i class="bi bi-trash3"></i>'.html_safe, event_photo_path(photo.event, photo),
                    data: { turbo_method: :delete, turbo_confirm: t("turbo.delete") } %>

@@ -15,13 +15,13 @@
         <% if current_user_can_edit?(@event) %>
           <div>
             <div class="buffer-both">
-              <%= link_to 'Изменить', edit_event_path(@event), class: 'btn btn-primary' %>
+              <%= link_to t(".edit"), edit_event_path(@event), class: 'btn btn-primary' %>
             </div>
 
             <div class="mb-2">
-              <%= button_to "Удалить мероприятие", event_path(@event),
+              <%= button_to t(".destroy"), event_path(@event),
                                 method: :delete,
-                                form: { data: { turbo_confirm: "Вы точно хотите удалить мероприятие?" } },
+                                form: { data: { turbo_confirm: t(".confirm-destroy") } },
                                 class: 'btn btn-danger' %>
             </div>
           </div>
@@ -34,9 +34,10 @@
     </div>
   </div>
 </div>
+
 <div class="row">
   <div class="col-md-8">
-    <h2>Фотогалерея</h2>
+    <h2><%= t(".photogal") %></h2>
 
     <div class="event-photos-gallery">
       <%= render partial: 'photos/photo', collection: @event.photos.except(@new_photo) %>
@@ -46,7 +47,7 @@
       <%= render partial: 'photos/form', locals: {photo: @new_photo || @event.photos.build} %>
     </div>
 
-    <h2 class="mt-3">Комментарии</h2>
+    <h2 class="mt-3"><%= t(".comments") %></h2>
     <%= render partial: 'comments/form', locals: {comment: @new_comment || @event.comments.build} %>
     <div class="buffer-both">
       <%= render partial: 'comments/comment',
@@ -56,12 +57,12 @@
 
   <div class="col-md-4">
     <div class="event-owner">
-      <h4>Зовет:</h4>
+      <h4><%= t(".call") %>:</h4>
       <p><%= render partial: 'users/user', object: @event.user %></p>
     </div>
 
     <div class="event-subscriptions">
-      <h4>Пойдут:</h4>
+      <h4><%= t(".will-go") %>:</h4>
       <div>
         <p>
           <%= render partial: 'subscriptions/subscription',
@@ -72,7 +73,7 @@
 
     <% unless @event.user == current_user || @event.subscribers.include?(current_user) %>
       <div class="event-subscription-form">
-        <h4>Я пойду:</h4>
+        <h4><%= t(".i-will-go") %>:</h4>
         <div>
           <%= render partial: 'subscriptions/form', locals: {
             subscription: @new_subscription || @event.subscriptions.build } %>

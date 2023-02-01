@@ -1,11 +1,11 @@
-<%= t '.title' %>
+Комментарий
 ----
 
 <%= @comment.body %>
 
-<%= t '.author' %>: <%= @comment.user_name %>
+Автор: <%= @comment.user_name %>
 
 --------------------------------
-<%= t '.event' %>: <%= link_to @comment.event.title, t("event-url", :id => @comment.event.id) %>
-<%= t '.datetime' %>: <%= l @comment.event.datetime %>
-<%= t '.owner' %>: <%= @comment.event.user.name %>
+Мероприятие: <%= link_to @comment.event.title, t("event-url", :id => @comment.event.id) %>
+Время: <%= l @comment.event.datetime %>
+Организатор: <%= @comment.event.user.name %>

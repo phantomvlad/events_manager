@@ -69,7 +69,9 @@ ru:
       error: 'Что-то не так с изображением'
       created: 'Вы добавили изображение к событию'
       destroyed: 'Вы удалили изображение'
+
   error:
+    start: 'В вашей форме'
     one: '%{count} ошибка'
     few: '%{count} ошибки'
     many: '%{count} ошибок'
@@ -80,6 +82,8 @@ ru:
     comment:
     destroy_confirm: 'Вы уверены, что хотите удалить этот комментарий?'
   subscriptions:
+    form:
+      subscribe: 'Подписаться'
     subscription:
       destroy_confirm: 'Вы уверены, что хотите удалить эту подписку?'
   buttons:
@@ -106,9 +110,59 @@ ru:
       event: 'Мероприятие'
       datetime: 'Время'
       owner: 'Организатор'
+
   events:
     password_form:
       pincode: 'Введите пинкод'
+      only-pin: 'Доступ только по пин-коду'
+      enter: 'Ввести'
+      or: 'или'
+    form:
+      for-private: 'Для создания приватного мероприятия'
+      save: 'Сохранить'
+      back: 'вернуться'
+    edit:
+      editing: 'Редактирование события'
+    index:
+      events: 'События'
+      create-event: 'Новое событие'
+    new:
+      new-event: 'Новое событие'
+    show:
+      edit: 'Изменить'
+      destroy: 'Удалить мероприятие'
+      confirm-destroy: 'Вы точно хотите удалить мероприятие?'
+      photogal: 'Фотогалерея'
+      comments: 'Комментарии'
+      call: 'Зовет'
+      will-go: 'Пойдут'
+      i-will-go: 'Я пойду'
+
+  layouts:
+    application:
+      name-company: 'EventManager'
+      home: 'Главная'
+      profile: 'Профиль'
+      exit: 'Выход'
+      sign-in: 'Войти'
+      registration: 'Зарегистрироваться'
+      footer: 'Владислав Федотов 2023'
+
+  photos:
+    photo:
+      add: 'Добавлено'
+
+  users:
+    form:
+      save: 'Сохранить'
+      back: 'вернуться'
+    edit:
+      edit: 'Редактирование профиля'
+      edit-password: 'Сменить пароль'
+    show:
+      edit-profile: 'Редактировать профиль'
+      author-event: 'Организовал'
+      user-no-event: 'Пользователь пока не организовал ни одного события'
 
   devise:
     mailer:
@@ -121,10 +175,17 @@ ru:
         subject: 'Инструкции по восстановлению пароля'
     passwords:
       edit:
+        enter-password: 'Введите пароль'
         change-password: 'Изменение пароля'
         new-password: 'Новый пароль'
         confirm-password: 'Подтвердите пароль'
         change-my-password: 'Сменить мой пароль'
+    registration:
+      new:
+        enter-no-register-email: 'Введите незарегестрированную почту'
+        max-35: 'Максимум 35 символов'
+        max-6: 'Максимум 6 символов'
+        registration: 'Зарегестрироваться'
 
   event-url: "https://event-manager-dance.ru/events/%{id}"
 

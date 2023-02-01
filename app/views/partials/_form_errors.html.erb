@@ -3,7 +3,7 @@
 <% if errors.any? %>
   <div class="alert alert-danger">
     <div class="lead buffer-bottom">
-      <h2>В вашей форме <%= I18n.t :error, count: errors.count %></h2>
+      <h2><%= t("error.start") %> <%= I18n.t :error, count: errors.count %></h2>
     </div>
 
     <ul>

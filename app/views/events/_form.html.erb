@@ -24,7 +24,7 @@
   <div class="form-group mb-3">
     <%= f.label :pincode, class: "form-label" %>
     <%= f.text_area :pincode, class: 'form-control' %>
-    <div id="emailHelp" class="form-text">Для создания приватного мероприятия</div>
+    <div id="emailHelp" class="form-text"><%= t(".for-private") %></div>
   </div>
 
   <div class="field mb-3">
@@ -33,7 +33,7 @@
   </div>
 
   <div class="actions mb-3">
-    <%= f.submit 'Сохранить', class: 'btn btn-primary' %>
-    или <%= link_to 'вернуться', :back %>
+    <%= f.submit t(".save"), class: 'btn btn-primary' %>
+    или <%= link_to t(".back"), :back %>
   </div>
 <% end %>
