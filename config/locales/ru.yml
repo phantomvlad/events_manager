@@ -188,7 +188,7 @@ ru:
         enter-no-register-email: 'Введите незарегестрированную почту'
         max-35: 'Максимум 35 символов'
         min-6: 'Минимум 6 символов'
-        registration: 'Зарегестрироваться'
+        registration: 'Зарегистрироваться'
 
   event-url: "https://event-manager-dance.ru/events/%{id}"
 

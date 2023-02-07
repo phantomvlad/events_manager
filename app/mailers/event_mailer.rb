@@ -9,10 +9,7 @@ class EventMailer < ApplicationMailer
 
   def comment(comment, email)
     @comment = comment
-
-    @comment.user.present? ?
-      (mail to: email, subject: default_i18n_subject(user_comment: @comment.user.name, event_title: @comment.event.title)) :
-      (mail to: email, subject: default_i18n_subject(user_comment: @comment.user_name, event_title: @comment.event.title))
+    mail to: email, subject: default_i18n_subject(user_comment: @comment.user_name, event_title: @comment.event.title)
   end
 
   def photo(email, photo)
