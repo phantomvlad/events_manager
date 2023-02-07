@@ -183,11 +183,11 @@ ru:
         new-password: 'Новый пароль'
         confirm-password: 'Подтвердите пароль'
         change-my-password: 'Сменить мой пароль'
-    registration:
+    registrations:
       new:
         enter-no-register-email: 'Введите незарегестрированную почту'
         max-35: 'Максимум 35 символов'
-        max-6: 'Максимум 6 символов'
+        min-6: 'Минимум 6 символов'
         registration: 'Зарегестрироваться'
 
   event-url: "https://event-manager-dance.ru/events/%{id}"

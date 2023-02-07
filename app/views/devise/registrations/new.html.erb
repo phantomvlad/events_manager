@@ -14,7 +14,7 @@
           <%= f.label :name, class: "form-label" %>
           <%= f.text_field :name, autofocus: true, input_html: {autocomplete: 'disabled'}, class: "form-control" %>
           <span id="passwordHelpInline" class="form-text">
-             <%= t(".max-35") %>>
+             <%= t(".max-35") %>
           </span>
         </div>
 
@@ -22,7 +22,7 @@
           <%= f.label :password, class: "form-label" %>
           <%= f.password_field :password, autocomplete: "new-password", autofocus: true, class: "form-control" %>
           <span id="passwordHelpInline" class="form-text">
-             <%= t(".max-6") %>>
+             <%= t(".min-6") %>
           </span>
         </div>
 

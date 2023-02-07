@@ -64,11 +64,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_20_213138) do
     t.index ["user_id"], name: "index_events_on_user_id"
   end
 
-  create_table "messages", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "photos", force: :cascade do |t|
     t.integer "user_id", null: false
     t.integer "event_id", null: false
