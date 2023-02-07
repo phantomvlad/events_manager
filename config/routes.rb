@@ -12,9 +12,9 @@ Rails.application.routes.draw do
     post :show, on: :member
   end
 
-  namespace :api do
-    namespace :v1 do
-      resources :events, only: [:index, :create]
-    end
-  end
+  #namespace :api do
+  #namespace :v1 do
+  #resources :events, only: [:index, :create]
+  #end
+  #end
 end
