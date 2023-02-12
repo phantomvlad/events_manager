@@ -11,10 +11,4 @@ Rails.application.routes.draw do
     resources :photos, only: [:create, :destroy]
     post :show, on: :member
   end
-
-  #namespace :api do
-  #namespace :v1 do
-  #resources :events, only: [:index, :create]
-  #end
-  #end
 end
