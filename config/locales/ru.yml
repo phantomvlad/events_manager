@@ -183,6 +183,8 @@ ru:
         new-password: 'Новый пароль'
         confirm-password: 'Подтвердите пароль'
         change-my-password: 'Сменить мой пароль'
+      new:
+        enter-password: 'Введите почту'
     registrations:
       new:
         enter-no-register-email: 'Введите незарегестрированную почту'
