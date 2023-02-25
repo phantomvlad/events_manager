@@ -3,8 +3,8 @@ lock "~> 3.17.2"
 
 set :application, "my_app_name"
 set :repo_url, "git@github.com:PhantomVlad/events_manager.git"
-# Папка, где будет храниться приложение
-set :deploy_to, '/home/phantomvlad/em'
+
+set :deploy_to, '/home/phantom/em'
 
 append :linked_files, 'config/database.yml', 'config/secrets.yml'
 append :linked_dirs, 'log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', 'public/system', 'public/uploads'
