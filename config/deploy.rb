@@ -6,10 +6,15 @@ set :repo_url, "git@github.com:PhantomVlad/events_manager.git"
 
 set :deploy_to, '/home/phantom/em'
 
-append :linked_files, 'config/database.yml', 'config/secrets.yml'
+append :linked_files, 'config/master.key'
 append :linked_dirs, 'log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', 'public/system', 'public/uploads'
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
+set :branch, "main"
+
+set :default_env, {
+  PATH: '$HOME/.nvm/versions/node/v19.4.0/bin/:$PATH'
+}
 
 # Default deploy_to directory is /var/www/my_app_name
 # set :deploy_to, "/var/www/my_app_name"
