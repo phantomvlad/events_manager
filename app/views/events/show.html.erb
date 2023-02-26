@@ -12,20 +12,22 @@
           <p><%= @event.description %></p>
         </div>
 
-        <% if current_user_can_edit?(@event) %>
           <div>
-            <div class="buffer-both">
-              <%= link_to t(".edit"), edit_event_path(@event), class: 'btn btn-primary' %>
-            </div>
+            <% if policy(@event).edit?  %>
+              <div class="buffer-both">
+                <%= link_to t(".edit"), edit_event_path(@event), class: 'btn btn-primary' %>
+              </div>
+            <% end %>
 
-            <div class="mb-2">
-              <%= button_to t(".destroy"), event_path(@event),
-                                method: :delete,
-                                form: { data: { turbo_confirm: t(".confirm-destroy") } },
-                                class: 'btn btn-danger' %>
-            </div>
+            <% if policy(@event).destroy?  %>
+              <div class="mb-2">
+                <%= button_to t(".destroy"), event_path(@event),
+                                  method: :delete,
+                                  form: { data: { turbo_confirm: t(".confirm-destroy") } },
+                                  class: 'btn btn-danger' %>
+              </div>
+            <% end %>
           </div>
-        <% end %>
       </div>
 
       <div class="col-md-6 text-center">

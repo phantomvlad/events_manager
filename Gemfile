@@ -22,9 +22,12 @@ gem "image_processing", ">= 1.2"
 gem "aws-sdk-s3", require: false
 gem "active_storage_validations"
 gem "recaptcha", require: "recaptcha/rails"
+gem "pundit"
 
 group :development, :test do
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
+  gem "rspec-rails"
+  gem "factory_bot_rails"
 end
 
 group :development do
