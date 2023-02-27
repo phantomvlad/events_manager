@@ -6,6 +6,11 @@ class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
 
   helper_method :current_user_can_edit?
+
+  def pundit_user
+    UserContext.new(current_user, { cookies: cookies, pincode: params[:pincode] })
+  end
+
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(
       :account_update,
