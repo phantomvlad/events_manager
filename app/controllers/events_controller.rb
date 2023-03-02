@@ -3,10 +3,11 @@ class EventsController < ApplicationController
 
   before_action :set_event, only: [:show, :edit, :destroy]
 
-  after_action :verify_authorized, only: [:edit, :update, :destroy, :new, :show, :create]
+  after_action :verify_authorized
 
   def index
-    @events = Event.all
+    authorize Event
+    @events = policy_scope(Event)
   end
 
   def new
@@ -31,9 +32,9 @@ class EventsController < ApplicationController
   end
 
   def show
-    @new_comment = @event.comments.build(params[:comment])
-    @new_subscription = @event.subscriptions.build(params[:subscription])
-    @new_photo = @event.photos.build(params[:photo])
+    if params[:pincode].present? && @event.pincode_valid?(params[:pincode])
+      cookies.permanent["events_#{@event.id}_pincode"] = params[:pincode]
+    end
 
     authorize @event
 
@@ -41,6 +42,10 @@ class EventsController < ApplicationController
     flash.now[:alert] = t("pundit.false_pincode") if params[:pincode].present?
 
     render "password_form", status: :unauthorized
+
+    @new_comment = @event.comments.build(params[:comment])
+    @new_subscription = @event.subscriptions.build(params[:subscription])
+    @new_photo = @event.photos.build(params[:photo])
   end
 
   def update

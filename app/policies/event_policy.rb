@@ -1,4 +1,8 @@
 class EventPolicy < ApplicationPolicy
+  def index?
+    true
+  end
+
   def update?
     user_is_owner?
   end
@@ -27,6 +31,12 @@ class EventPolicy < ApplicationPolicy
     user_is_owner?
   end
 
+  class Scope < Scope
+    def resolve
+      scope.all
+    end
+  end
+
   private
 
   def user_is_owner?
@@ -34,10 +44,7 @@ class EventPolicy < ApplicationPolicy
   end
 
   def correct_pincode?
-    if user.params[:pincode].present? && record.pincode_valid?(user.params[:pincode])
-      user.params[:cookies].permanent["events_#{record.id}_pincode"] = user.params[:pincode]
-    end
-
-    record.pincode_valid?(user.params[:cookies].permanent["events_#{record.id}_pincode"])
+    record.pincode_valid?(user.params[:pincode])
   end
 end
+

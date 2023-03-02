@@ -199,3 +199,4 @@ ru:
 
   pundit:
     not_authorized: "Отказано в доступе"
+    false_pincode: "Пинкод неверный"
