@@ -38,14 +38,14 @@ class EventsController < ApplicationController
 
     authorize @event
 
+    @new_comment = @event.comments.build(params[:comment])
+    @new_subscription = @event.subscriptions.build(params[:subscription])
+    @new_photo = @event.photos.build(params[:photo])
+    
   rescue Pundit::NotAuthorizedError
     flash.now[:alert] = t("pundit.false_pincode") if params[:pincode].present?
 
     render "password_form", status: :unauthorized
-
-    @new_comment = @event.comments.build(params[:comment])
-    @new_subscription = @event.subscriptions.build(params[:subscription])
-    @new_photo = @event.photos.build(params[:photo])
   end
 
   def update
