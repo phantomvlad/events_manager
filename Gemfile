@@ -23,6 +23,7 @@ gem "aws-sdk-s3", require: false
 gem "active_storage_validations"
 gem "recaptcha", require: "recaptcha/rails"
 gem "pundit"
+gem "resque"
 
 group :development, :test do
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
@@ -38,6 +39,7 @@ group :development do
   gem 'capistrano-passenger'
   gem 'capistrano-rbenv'
   gem 'capistrano-bundler'
+  gem 'capistrano-resque', require: false
 end
 
 group :production do
