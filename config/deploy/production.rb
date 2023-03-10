@@ -10,7 +10,7 @@ server "event-manager-dance.ru", user: "phantom", roles: %w[app db web resque_wo
 # При запуске воркера загружать Rails приложение
 set :resque_environment_task, true
 # Будет запущен один воркер, обслуживающий очереди с именем "event*"
-set :workers, { "#{fetch(:application)}*" => 1 }
+set :workers, { "event*" => 1 }
 
 # role-based syntax
 # ==================
