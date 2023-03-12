@@ -1,7 +1,7 @@
 class EventsController < ApplicationController
   before_action :authenticate_user!, except: [:show, :index]
-
   before_action :set_event, only: [:show, :edit, :destroy]
+  before_action :password_guard!, only: [:show]
 
   after_action :verify_authorized
 
@@ -74,4 +74,22 @@ class EventsController < ApplicationController
   def event_params
     params.require(:event).permit(:title, :address, :datetime, :description,  :photo, :event_avatar, :pincode)
   end
+
+  def password_guard!
+    return true if @event.pincode.blank?
+    return true if signed_in? && current_user == @event.user
+
+    if params[:pincode].present? && @event.pincode_valid?(params[:pincode])
+      cookies.permanent["events_#{@event.id}_pincode"] = params[:pincode]
+    end
+
+    pincode = cookies.permanent["events_#{@event.id}_pincode"]
+    unless @event.pincode_valid?(pincode)
+      if params[:pincode].present?
+        flash.now[:alert] = I18n.t('controllers.events.wrong_pincode')
+      end
+      render 'password_form'
+    end
+  end
+
 end

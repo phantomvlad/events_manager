@@ -12,7 +12,7 @@ class EventPolicy < ApplicationPolicy
   end
 
   def show?
-    if record.pincode.blank? || user_is_owner?
+    if record.pincode.blank? || user_is_owner? || user.params[:cookies].permanent["events_#{record.id}_pincode"] == record.pincode
       true
     else
       correct_pincode?
