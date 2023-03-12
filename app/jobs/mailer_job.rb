@@ -6,7 +6,7 @@ class MailerJob < ApplicationJob
     all_emails.delete(model.user&.email)
 
     all_emails.each do |mail|
-      EventMailer.public_send(model.class.model_name.singular, event, model, mail).deliver_now
+      EventMailer.public_send(model.class.model_name.singular, model, mail).deliver_now
     end
   end
 end
