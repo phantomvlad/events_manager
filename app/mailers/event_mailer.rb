@@ -8,6 +8,7 @@ class EventMailer < ApplicationMailer
   end
 
   def comment(comment, email)
+
     @comment = comment
     mail to: email, subject: default_i18n_subject(user_comment: @comment.user_name, event_title: @comment.event.title)
   end
