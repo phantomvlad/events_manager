@@ -1,6 +1,6 @@
 class EventsController < ApplicationController
   before_action :authenticate_user!, except: [:show, :index]
-  before_action :set_event, only: [:show, :edit, :destroy]
+  before_action :set_event, only: [:show, :edit, :destroy, :update]
   before_action :password_guard!, only: [:show]
 
   after_action :verify_authorized
@@ -91,5 +91,4 @@ class EventsController < ApplicationController
       render 'password_form'
     end
   end
-
 end
