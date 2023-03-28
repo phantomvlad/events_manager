@@ -1,5 +1,5 @@
 class EventMailer < ApplicationMailer
-  def subscription(subscription)
+  def subscription(subscription, email)
     @email = subscription.user_email
     @name = subscription.user_name
     @event = subscription.event
@@ -13,7 +13,7 @@ class EventMailer < ApplicationMailer
     mail to: email, subject: default_i18n_subject(user_comment: @comment.user_name, event_title: @comment.event.title)
   end
 
-  def photo(email, photo)
+  def photo(photo, email)
     @photo = photo
 
     mail to: email, subject: default_i18n_subject(user_photo: @photo.user.name, event_title: @photo.event.title)
